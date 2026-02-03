@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  report-relay:
+    build: .
+    container_name: report-relay
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - TZ=Asia/Seoul
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
